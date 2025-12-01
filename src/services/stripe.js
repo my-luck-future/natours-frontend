@@ -2,9 +2,14 @@
 import axios from 'axios';
 import { showAlert } from './alerts';
 
-const stripe = Stripe(
-  'pk_test_51SQrdQ1ujSYfkiIV8wNxyhUlDWfs3j6AW9YTbJzOZ2COSe7wgXG6EkAHQ12n3CXTUpKgWZ8TEMqThLTr3I30VbDT002tUWkxUf'
-);
+let stripe;
+if (window.Stripe) {
+  stripe = Stripe(
+    'pk_test_51SQrdQ1ujSYfkiIV8wNxyhUlDWfs3j6AW9YTbJzOZ2COSe7wgXG6EkAHQ12n3CXTUpKgWZ8TEMqThLTr3I30VbDT002tUWkxUf'
+  );
+} else {
+  console.error('Stripe library not loaded');
+}
 
 const API_URL = import.meta.env.VITE_BACKEND_URL;
 
