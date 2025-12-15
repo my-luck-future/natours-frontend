@@ -4,7 +4,6 @@ import { logout } from '../services/login';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { resetUser } from '../features/user/userTourSlice';
-import users from '../dev-data/data/users.json';
 
 function Header() {
   const navigate = useNavigate();

@@ -1,7 +1,6 @@
 import { useLoaderData } from 'react-router-dom';
 import { getTours } from '../../services/tour';
 import TourItem from './TourItem';
-import tours from '../../dev-data/data/tours.json';
 
 function TourList() {
   const tours = useLoaderData();

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateUser } from '../user/userTourSlice';
 import { updateSettings } from '../../services/settings';
-import users from '../../dev-data/data/users.json';
 
 // 导航项组件（对应 mixin navItem）
 function NavItem({ link, text, icon, active }) {
@@ -130,7 +129,7 @@ function Account() {
                 <img
                   className="form__user-photo"
                   src={`/img/users/${photo || 'default.jpg'}`}
-                  alt="User photo"
+                  alt="User"
                 />
                 <input
                   className="form__upload"
@@ -138,6 +137,7 @@ function Account() {
                   accept="image/*"
                   id="photo"
                   name="photo"
+                  onChange={(e) => setPhoto(e.target.value)}
                 />
                 <label htmlFor="photo">Choose new photo</label>
               </div>

@@ -1,7 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import userReducer from './features/user/userSlice';
 import userTourReducer from './features/user/userTourSlice';
-import cartReducer from './features/cart/cartSlice';
 import { combineReducers } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // 使用 localStorage，或者使用 sessionStorage
@@ -16,8 +14,6 @@ const persistConfig = {
 
 // 使用 combineReducers 合并多个 reducers
 const rootReducer = combineReducers({
-  // user: userReducer,
-  // cart: cartReducer,
   userTour: userTourReducer,
 });
 

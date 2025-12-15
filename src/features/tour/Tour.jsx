@@ -4,9 +4,6 @@ import { useLoaderData } from 'react-router-dom';
 import { getTour } from '../../services/tour';
 import { bookTour } from '../../services/stripe';
 import { displayMap } from '../../services/mapbox';
-import users from '../../dev-data/data/users.json';
-import tours from '../../dev-data/data/tours.json';
-import reviews from '../../dev-data/data/reviews.json';
 
 // 评论卡片组件（对应 mixin reviewCard）
 function ReviewCard({ review }) {
