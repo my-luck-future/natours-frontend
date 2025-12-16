@@ -1,22 +1,9 @@
-import { useSelector } from 'react-redux';
+import { useLoaderData } from 'react-router-dom';
 import { getMyTours } from '../../services/tour';
 import TourItem from './TourItem';
-import { useState, useEffect } from 'react';
 
 function MyTours() {
-  const user = useSelector((state) => state.userTour);
-  const [tours, setTours] = useState([]);
-
-  useEffect(() => {
-    const loadTours = async () => {
-      if (user.id === '') return;
-      console.log('loading my tours.....');
-      const tours = await getMyTours(user);
-      setTours(tours);
-    };
-
-    loadTours();
-  }, [user]);
+  const tours = useLoaderData();
 
   return (
     <main className="main">
@@ -27,6 +14,11 @@ function MyTours() {
       </div>
     </main>
   );
+}
+
+export async function loader() {
+  const tours = await getMyTours();
+  return tours;
 }
 
 export default MyTours;

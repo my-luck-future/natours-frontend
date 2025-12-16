@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import TourList, { loader as tourListLoader } from './features/tour/TourList';
-import MyTours from './features/tour/MyTours';
+import MyTours, { loader as myTourLoader } from './features/tour/MyTours';
 import Tour, { loader as tourLoader } from './features/tour/Tour';
 import Error from './ui/Error';
 import Login from './features/account/Login';
@@ -22,6 +22,7 @@ const router = createBrowserRouter([
       {
         path: '/my-tours',
         element: <MyTours />,
+        loader: myTourLoader,
         errorElement: <Error />,
       },
       {

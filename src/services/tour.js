@@ -3,12 +3,12 @@ import { showAlert } from './alerts';
 
 const API_URL = import.meta.env.VITE_BACKEND_URL;
 
-export async function getMyTours(user) {
+export async function getMyTours() {
   try {
     const res = await axios({
       withCredentials: true,
       method: 'GET',
-      url: `${API_URL}/api/v1/tours/my-order-tours?userId=${user.id}`,
+      url: `${API_URL}/api/v1/tours/my-tours`,
     });
 
     if (res.data.status === 'success') {
