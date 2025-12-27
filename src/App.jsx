@@ -31,8 +31,12 @@ const router = createBrowserRouter([
         loader: tourLoader,
         errorElement: <Error />,
       },
+      {
+        path: '/me',
+        element: <Account />,
+        errorElement: <Error />,
+      },
       { path: '/login', element: <Login /> },
-      { path: '/me', element: <Account /> },
     ],
   },
 ]);

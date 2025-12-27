@@ -19,6 +19,12 @@ function NavItem({ link, text, icon, active }) {
 
 function Account() {
   const user = useSelector((state) => state.userTour);
+
+  if (!user.id || !user.name || !user.email) {
+    // ⚠️ 渲染阶段直接抛错
+    throw new Response('Unauthorized', { status: 401 });
+  }
+
   const [name, setName] = useState(user?.name);
   const [email, setEmail] = useState(user?.email);
   const [photo, setPhoto] = useState(user?.photo);

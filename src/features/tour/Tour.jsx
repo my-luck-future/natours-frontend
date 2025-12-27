@@ -7,24 +7,23 @@ import { displayMap } from '../../services/mapbox';
 
 // 评论卡片组件（对应 mixin reviewCard）
 function ReviewCard({ review }) {
-  const cur_review = review;
   return (
     <div className="reviews__card">
       <div className="reviews__avatar">
         <img
           className="reviews__avatar-img"
-          src={`/img/users/${cur_review.user.photo}`}
-          alt={cur_review.user.name}
+          src={`/img/users/${review.user.photo}`}
+          alt={review.user.name}
         />
-        <h6 className="reviews__user">{cur_review.user.name}</h6>
+        <h6 className="reviews__user">{review.user.name}</h6>
       </div>
-      <p className="reviews__text">{cur_review.review}</p>
+      <p className="reviews__text">{review.review}</p>
       <div className="reviews__rating">
         {[1, 2, 3, 4, 5].map((star) => (
           <svg
             key={star}
             className={`reviews__star reviews__star--${
-              cur_review.rating >= star ? 'active' : 'inactive'
+              review.rating >= star ? 'active' : 'inactive'
             }`}
           >
             <use xlinkHref="/img/icons.svg#icon-star" />
@@ -61,7 +60,7 @@ function Tour() {
   }, [tour]);
 
   // 处理日期格式化
-  const date = new Date(tour.startDates[0]).toLocaleString('en-us', {
+  const date = new Date(tour.startDates?.[0]).toLocaleString('en-us', {
     month: 'long',
     year: 'numeric',
   });
